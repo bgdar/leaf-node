@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        position: relative;
+        box-sizing: border-box;
+        background-color: #f1f8e9; /* Very Light Green Bacground default*/
+      }
+      /* Nav Container */
+      nav {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          #a5d6a7,
+          #66bb6a
+        ); /* Background gradien hijau */
+        height: 60px;
+        padding: 1.1rem;
+        z-index: 999;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut di bawah */
+        border-radius: 10px;
+      }
+
+      /* Navigation Flexbox Container */
+      nav .navigasi {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Logo Styling */
+      nav .navigasi .logo img {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      nav .navigasi .logo img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Menu List */
+      nav .navigasi ul {
+        display: flex;
+        list-style-type: none;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav .navigasi li {
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      nav .navigasi li:hover {
+        background-color: #c5dff4;
+      }
+
+      nav .navigasi li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        transition: color 0.3s ease;
+      }
+
+      nav .navigasi li:hover a {
+        color: #333;
+      }
+
+      /* Dashboard Icon */
+      nav .navigasi .dashboard img {
+        height: 45px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      nav .navigasi .dashboard img:hover {
+        transform: scale(1.1);
+      }
+
+      /* card-me start */
+      .card-me {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        border: 1px solid #a5d6a7;
+        background: linear-gradient(
+          135deg,
+          #c8e6c9,
+          #a5d6a7
+        ); /* Gradien lembut */
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+        position: absolute;
+        width: 250px;
+        z-index: 10;
+        top: -700px; /* Posisi awal sebelum aktif */
+        left: 10px;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: 0.5s ease-in-out; /* Animasi transisi halus */
+      }
+
+      .card-me.active {
+        top: 97px; /* Posisi saat aktif */
+        opacity: 1;
+        transform: translateY(0); /* Animasi transisi masuk */
+        transition: 0.5s ease-in-out;
+      }
+
+      .card-me .row {
+        text-align: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #a5d6a7;
+      }
+
+      .card-me .row img {
+        width: 100%;
+        border-radius: 15px;
+        transition: 0.3s ease;
+      }
+
+      .card-me .row img:hover {
+        transform: scale(1.05); /* Efek zoom ringan pada gambar saat di-hover */
+      }
+
+      .card-me p {
+        font-size: 0.9rem;
+        color: #2e7d32;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+      }
+
+      .card-me p strong {
+        color: #ffffff;
+        background-color: #2e7d32;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+
+      .card-me:hover {
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15); /* Bayangan tambahan saat di-hover */
+      }
+      /* card-me end */
+
+      @media (max-width: 500px) {
+        nav .navigasi ul {
+          margin: auto 0;
+        }
+
+        nav .navigasi ul {
+          justify-content: center;
+        }
+        .logo {
+          position: fixed;
+          bottom: 66px;
+          left: 10px;
+        }
+        .dashboard {
+          padding-right: 10px;
+          position: fixed;
+          bottom: 66px;
+          right: 10px;
+        }
+      }
+    </style>
+    <!-- file css extend dari server -->
+    <link rel="stylesheet" href="<%= fileCss %>" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="navigasi">
+        <div class="logo" id="id-card">
+          <img src="/icons/id-card.png" title="About me" alt="logo" />
+        </div>
+        <div>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/comentar">Comentar</a></li>
+            <li><a href="/input_image">image Input</a></li>
+          </ul>
+        </div>
+        <div class="dashboard">
+          <a href="/"
+            ><img src="/icons/dashboard.png" alt="dashboard" title="dashboard"
+          /></a>
+        </div>
+      </div>
+    </nav>
+
+    <!--  card about me -->
+    <!-- styling untuk JS ada di setiap route nya -->
+    <div class="card-me">
+      <div class="row">
+        <img src="/img/nadar.jpg" alt="Muhammad Nadhar" />
+        <p>Hay <strong>I Am</strong></p>
+        <p>muhammad nadhar</p>
+        <p>Welcome to my website</p>
+      </div>
+    </div>
+    <div class="container"><%- body %></div>
+    <script src="<%= fileJs %>"></script>
+    <script defer>
+      // CARD ABOUT ME START
+      const idCard = document.querySelector("#id-card");
+      const card = document.querySelector(".card-me");
+
+      idCard.addEventListener("click", (e) => {
+        card.classList.toggle("active");
+      });
+      // Menambahkan event listener untuk klik di dokumen
+      document.addEventListener("click", (e) => {
+        if (!card.contains(e.target) && !idCard.contains(e.target)) {
+          card.classList.remove("active");
+        } else if (idCard) {
+          e.stopPropagation(); // Memblokir event bubbling ke parent element
+        }
+      });
+      // CARD ABOUT ME END
+    </script>
+  </body>
+</html>

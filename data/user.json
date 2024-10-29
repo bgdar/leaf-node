@@ -1,0 +1,15 @@
+[
+  {
+    "name": "nadhar",
+    "password": "$2a$10$8en7JQfrYBblJWrVznIqP.FBa11JTMLafDfNan2o5Pu8EdiLX56t6",
+    "email": "muhammadnadhar@gmail.com",
+    "age": 20
+  },
+
+  {
+    "name": "dar",
+    "password": "$2a$10$S3PlFQNbZbNzfkbC1dsQy.Fed2F6CM9THq56iatT6mgNFVRzneaGu",
+    "email": "ad@gamil.com",
+    "age": 19
+  }
+]

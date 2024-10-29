@@ -1,0 +1,46 @@
+halman dashboard adalah halaman utama 
+    di sini ada router mengarah ke 
+          login
+          MainPage
+
+halaman yg ada di .MainPage menggunakan layouts
+
+data User
+  -> username = nadhar Dan password = nadhar 
+  -> username = ahmad Dan password = ahmad 
+
+/* Body */
+body {
+  background-color: #f1f8e9; /* Very Light Green Background */
+  color: #2e7d32; /* Dark Green Text Color */
+}
+
+/* Background Color */
+background-color: #e8f5e9; /* Light Green */
+
+/* Text Color */
+color: #2e7d32; /* Dark Green */
+
+/* Border Color */
+border: 1px solid #a5d6a7; /* Medium Light Green */
+
+/* Card Background */
+.card {
+  background-color: #c8e6c9; /* Light Green Card */
+  border: 1px solid #a5d6a7; /* Medium Light Green Border */
+  color: #2e7d32; /* Dark Green Text */
+}
+
+/* Button */
+button {
+  background-color: #388e3c; /* Dark Green Button */
+  color: #ffffff; /* White Text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2c6c2f; /* Darker Green on Hover */
+}

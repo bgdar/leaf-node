@@ -1,0 +1,47 @@
+<a class="logout" id="logout">
+  <img src="icons/logout.png" title="logout" alt="logout elemnet" />
+</a>
+<section class="home" pesan="<%= messageSuccess %>">
+  <div class="layout">
+    <div class="desc">
+      <h1>Welcome to My WEBSITE</h1>
+    </div>
+  </div>
+</section>
+<section class="content-container">
+  <h1>Logo</h1>
+  <div class="content">
+    <% logo.forEach(logo => { %>
+    <div class="logo">
+      <span
+        id="span"
+        author="<%= logo.author %>"
+        year="<%= logo.year %>"
+        desc="<%= logo.desc %>"
+        logo="<%= logo.logo %>"
+        title="<%= logo.title %>"
+      >
+        <button id="btn-detail" type="button">detail</button>
+      </span>
+      <img src="<%= logo.logo %>" alt="logo" />
+      <p class="title"><%= logo.title %></p>
+    </div>
+    <% }) %>
+  </div>
+</section>
+<footer>
+  <p>�� 2024 My WebSite. All rights reserved.</p>
+  <div class="row">
+    <div class="social-media">
+      <a href="#"><img src="icons/facebook.png" alt="facebook" /></a>
+      <a href="#"><img src="icons/twitter.png" alt="twitter" /></a>
+      <a href="#"><img src="icons/instagram.png" alt="instagram" /></a>
+    </div>
+    <div class="contact">
+      <a href="#"><img src="icons/contact.png" alt="contact" /></a>
+    </div>
+    <div class="login" id="login">
+      <img src="icons/login.png" alt="icon login" />
+    </div>
+  </div>
+</footer>

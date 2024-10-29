@@ -1,0 +1,183 @@
+.logout {
+  position: absolute;
+  z-index: 100;
+  top: 6.1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.logout img {
+  width: 30px;
+  height: 30px;
+  transition: 0.6s;
+}
+
+.home {
+  height: 100vh;
+  background-image: url("../img/home-leaf.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding: 10px;
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+}
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.desc {
+  padding: 10px;
+  width: 500px;
+}
+.desc h1 {
+  color: #aeaeae;
+  text-align: center;
+  font-size: 1.9rem;
+  text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  transition: all 0.3s ease; /* Transisi halus */
+}
+
+/* Menambahkan konten sebelum teks */
+.desc h1::before {
+  content: "😘"; /* Contoh simbol bintang sebelum teks */
+  position: absolute;
+  left: -8px;
+  top: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* Menambahkan konten setelah teks */
+.desc h1::after {
+  content: "😆"; /* Contoh simbol bintang setelah teks */
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.desc h1:hover {
+  color: #ff5757; /* Mengubah warna saat dihover */
+  font-size: 2.2rem; /* Mengubah ukuran font saat dihover */
+  transform: rotate(3deg); /* Efek rotasi kecil */
+  text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.7); /* Efek bayangan lebih besar */
+}
+
+/* Saat dihover, pseudo-element muncul */
+.desc h1:hover::before,
+.desc h1:hover::after {
+  opacity: 1; /* Membuat before dan after muncul */
+  transform: scale(1.2); /* Membuat simbol lebih besar saat hover */
+}
+
+/* content start */
+.content-container {
+  margin: 150px auto;
+  text-align: center;
+}
+.content-container h1 {
+  font-size: 2rem;
+  text-shadow: -2px 2px 1px rgba(89, 89, 89, 0.5);
+  color: #fefefe;
+}
+.content {
+  width: 98%;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 10px;
+  padding: 1.3rem;
+  align-items: center;
+}
+.content .logo {
+  margin-top: 10px;
+  position: relative;
+  border: 1px solid;
+  box-shadow: -1px 1px 1px #555555;
+  margin-top: 10px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #d2dfd3;
+  width: 10.5rem;
+  margin-bottom: 10px;
+}
+
+.content .logo span {
+  position: absolute;
+  top: 0.7px;
+  left: 0;
+}
+.content .logo span button {
+  background-color: #42a5f5;
+  padding: 0.4rem;
+  color: white;
+  border-radius: 5px;
+}
+.content .logo span button:hover {
+  background-color: #039be5;
+}
+.content .logo img {
+  margin-top: 10px;
+  width: 150px;
+}
+.content p {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #fefefe;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 1px #000000;
+}
+/* footer start */
+footer {
+  background-color: #37474f;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+footer img {
+  width: 20px;
+  margin-right: 10px;
+}
+footer .row {
+  display: flex;
+  justify-content: space-between;
+}
+footer .social-media {
+  display: flex;
+  justify-content: center;
+}
+
+/* footer end */
+/* tablet */
+@media (max-width: 700px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* hp */
+@media (max-width: 400px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+  .home .layout .mainLeaf {
+    position: absolute;
+    bottom: calc(
+      20px
+    ); /* Memposisikan gambar leaf sedikit ke atas gambar semak */
+    left: 50%;
+    transform: translateX(-50%); /* Memusatkan gambar leaf */
+    width: 60%; /* Atur lebar sesuai kebutuhan */
+    max-width: none; /* Menghilangkan lebar maksimum */
+  }
+}

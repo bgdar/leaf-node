@@ -1,0 +1,278 @@
+body {
+  box-sizing: border-box;
+  padding: 0;
+  position: relative;
+  margin: 0;
+  background-color: #f1f8e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+main {
+  overflow: hidden;
+  background-color: #ffffff;
+  width: 50vw;
+  padding: 0 3.4rem;
+  text-align: center;
+  border: 5px solid #ccc;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+main .dsc {
+  display: block;
+}
+main .dsc h1 {
+  color: #2e7d32;
+  text-shadow: 01px 2px 1px #89cf8b;
+}
+main .dsc img {
+  height: 5.8rem;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffffff;
+  }
+}
+main .dsc .desc p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 800;
+  color: #1e88e5;
+  font-size: 1.2rem;
+}
+
+main .dsc .desc span {
+  font-family: "courier", monospace;
+  white-space: nowrap;
+  padding-right: 0.5rem;
+  overflow: hidden;
+  width: 0;
+  animation: typing 0.5s steps(30, end), blink-caret 1s infinite;
+  font-weight: bold;
+  border-right: 2px solid #000000;
+  color: #42a5f5;
+}
+main .start {
+  cursor: pointer;
+  margin: 10px auto 0;
+  width: 205px;
+  padding: 10px 0;
+  border-radius: 17px;
+  border: 1px solid #66bb6a;
+  text-align: center;
+  background: linear-gradient(135deg, #a5d6a7, #66bb6a); /* Gradien Hijau */
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Bayangan halus pada teks */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15); /* Efek bayangan */
+  transition: 0.3s all ease;
+}
+
+main .start:hover {
+  background: linear-gradient(
+    135deg,
+    #89cf8b,
+    #388e3c
+  ); /* Gradien hijau lebih gelap saat hover */
+  transform: translateY(
+    -3px
+  ); /* Efek mengangkat tombol sedikit saat di-hover */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat hover */
+}
+
+main .start a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+main .start a:hover {
+  color: #c8e6c9; /* Warna teks lebih terang saat di-hover */
+}
+
+main .menubar {
+  margin-top: 2.3rem;
+  background: linear-gradient(45deg, #a5d6a7, #66bb6a); /* Gradien Hijau */
+  border: 1px solid #66bb6a; /* Warna Border Hijau */
+  color: #ffffff;
+  display: flex;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+  transition: background 0.3s ease;
+}
+
+main .menubar:hover {
+  background: linear-gradient(
+    45deg,
+    #81c784,
+    #388e3c
+  ); /* Gradien hijau yang lebih gelap saat di-hover */
+}
+
+main .menubar a {
+  margin: 0.3rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+main .menubar img {
+  width: 35px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+main .menubar img:hover {
+  transform: scale(1.2); /* Memperbesar gambar sedikit lebih besar saat hover */
+}
+
+/* card login */
+.card-blur {
+  z-index: 100;
+  display: none;
+  top: 0;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  filter: blur(5px);
+}
+.card-blur.active {
+  display: block;
+}
+.card-login {
+  z-index: 104;
+  display: none;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  position: absolute;
+  height: 250px;
+  transition: 0.5s all;
+  background-color: #f1f8e9;
+}
+.card-login.active {
+  display: flex;
+}
+
+.card-login .row,
+.card-singin .row {
+  text-align: center;
+  display: block;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.card-login .row input,
+.card-singin input {
+  width: 80%;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  padding: 0.5rem;
+  background-color: #a5d6a7;
+  margin-bottom: 1rem;
+}
+.card-login .row p {
+  border: 1px solid #a5d6a7;
+  padding: 5px;
+  color: #aeaeaa;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.card-login .row p:hover {
+  background-color: #a5d6a7;
+  color: #2e7d32;
+  text-decoration: underline;
+}
+.card-login .row button,
+.card-singin .row button {
+  padding: 0.5rem;
+  border: none;
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  cursor: pointer;
+}
+.card-login .row button:hover,
+.card-singin #singin button :hover {
+  background-color: #eaeaea;
+  transition: 0.6s all;
+  color: #448047;
+  border: 1px solid;
+}
+/* card singi start */
+.card-singin {
+  margin-left: 10px;
+  visibility: hidden; /* Tambahkan ini */
+  opacity: 0; /* Tambahkan ini */
+  display: flex;
+  z-index: 101;
+  justify-content: center;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  align-items: center;
+  width: 300px;
+  position: absolute;
+  height: 250px;
+  background-color: #f1f8e9;
+  transition: 0.5s all;
+}
+.card-singin .row {
+  margin-top: 1.2rem;
+}
+.card-singin.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(50%);
+}
+.card-contact {
+  display: none;
+}
+@media (max-width: 568px) {
+  main {
+    width: 80vw;
+    padding: 0 1.4rem;
+  }
+  .dsc .desc .typeWrite {
+    width: 90%;
+  }
+  .dsc .desc .typeWrite span {
+    font-size: 0.8rem; /* Ukuran huruf lebih kecil */
+    letter-spacing: 0.1rem; /* Spasi antar kata lebih kecil */
+  }
+}
+/* Alert SweetAlert2*/
+/* Kustom gaya untuk alert dan kelas CSS Default di SweetAlert2: */
+.small-alert {
+  width: 200px !important; /* Lebar alert lebih kecil */
+  font-size: 14px !important; /* Ukuran font lebih kecil */
+}
+.swal2-popup {
+  position: absolute !important; /* Memastikan alert tidak mengganggu elemen lain */
+  top: 20px !important;
+  right: 20px !important;
+}
+.swal2-title {
+  font-size: 18px !important; /* Sesuaikan ukuran teks judul */
+}
+.swal2-confirm {
+  padding: 6px 12px !important; /* Sesuaikan ukuran tombol konfirmasi */
+  font-size: 14px !important;
+}

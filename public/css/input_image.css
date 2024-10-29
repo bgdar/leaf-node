@@ -1,0 +1,138 @@
+/* Heading Styles */
+h2,
+h3 {
+  text-align: center;
+  margin: 2rem;
+  color: #333;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Message Styling */
+.message {
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 200px;
+  border: 0px;
+  color: #666;
+  text-align: center;
+}
+
+/* Input Section Styling */
+#input-image {
+  text-align: center;
+  height: 60vh;
+  margin: 20px auto;
+  padding: 2rem;
+  width: 80%;
+  max-width: 600px;
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(200, 230, 201, 0.8)
+    ),
+    url("../img/pexels-cottonbro-3584994.jpg") no-repeat center center;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Styling */
+#input-image form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#input-image form input[type="file"] {
+  width: 80%;
+  max-width: 500px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #a7a2a2;
+  color: #fff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+#input-image form input[type="file"]:hover {
+  background-color: #867d7d;
+}
+
+#input-image form input[type="submit"] {
+  padding: 0.5rem 1.5rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a5d6a7, #66bb6a);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#input-image form input[type="submit"]:hover {
+  background: linear-gradient(135deg, #66bb6a, #388e3c);
+  transform: translateY(-2px);
+}
+
+/* Redirect Link Styling */
+#input-image .redirect-image {
+  margin: 1rem auto;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ccc, #999);
+  width: fit-content;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#input-image .redirect-image:hover {
+  background: linear-gradient(135deg, #999, #666);
+  transform: translateY(-2px);
+}
+
+#input-image .redirect-image a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Display Image Section */
+#display-image {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+#display-image .succes-upload {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: rgba(223, 240, 216, 0.9);
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Uploaded Images Styling */
+.succes-upload img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.succes-upload img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}

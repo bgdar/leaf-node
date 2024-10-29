@@ -1,0 +1,71 @@
+<main>
+  <section class="container-comentar">
+    <h1>Komentar</h1>
+    <div class="row">
+      <div class="fitur-comentar">
+        <form id="commentForm" method="post" action="/comentar">
+          <div class="pembungkus">
+            <div class="comentar">
+              <textarea
+                class="inputKomentar"
+                id="inputKomentar"
+                title="Comentar"
+                placeholder="Masukan Comentar terbaik Anda..."
+                name="inputKomentar"
+                required
+              ></textarea>
+            </div>
+            <div class="img-comentar">
+              <img
+                id="img-comentar"
+                src="icons/comment.png"
+                title="Comentar"
+                alt="Komentar"
+              />
+            </div>
+          </div>
+          <button type="submit" id="btnAdd">Add</button>
+          <div id="response"></div>
+        </form>
+      </div>
+      <div class="box-hasil-comentar" id="boxHasilKomentar">
+        <!-- Hasil komentar akan ditampilkan di sini -->
+        <% data.forEach(data => { %>
+        <div class="comentarUser">
+          <p class="age" age="<%= data.age %>">
+            <% if (data.age === "") { %> (●'◡'●) <% } else { %> <%= data.age %>
+            <% } %>
+          </p>
+          <div class="row">
+            <p class="user" user="<%= data.user %>"><%= data.user %></p>
+            <p class="textComentar"><%= data.textComentar %></p>
+            <p class="time"><%= data.timestamp %></p>
+          </div>
+
+          <div class="edit-comentar">
+            <button
+              class="editBtn"
+              komentar="<%= data.textComentar %>"
+              date="<%= data.timestamp %>"
+              id="editbtn"
+            >
+              <img src="icons/edit.png" title="edit" alt="edit-btn" />
+            </button>
+            <button
+              date="<%= data.timestamp %>"
+              class="deleteBtn"
+              id="deleteBtn"
+            >
+              <img src="icons/delete.png" title="delete" alt="delete btn" />
+            </button>
+          </div>
+
+          <div class="form-comentar">
+            <!-- card edit comentar ! di tambah dari JS -->
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>

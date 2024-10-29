@@ -1,0 +1,29 @@
+<h2>Input image</h2>
+<section id="input-image">
+  <% if (typeof message != "undefined") { %>
+  <p class="message"><%= message %></p>
+  <% } %>
+  <form action="/input_image" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" id="file" />
+    <input type="submit" value="upload" />
+  </form>
+  <p class="redirect-image">
+    <a href="#success">Image ⤵️<span></span></a>
+  </p>
+</section>
+
+<section id="display-image">
+  <h3>Image Upload</h3>
+  <div class="succes-upload" id="success">
+    <% images.forEach(img => { %>
+    <img
+      src="<%= img %>"
+      alt="<%= img %>"
+      style="width: 300px"
+      title="<%= img %>"
+    />
+    <% }) %> <% if (images.length < 0) { %>
+    <p>Masih kosong</p>
+    <% } %>
+  </div>
+</section>

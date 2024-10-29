@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <main>
+      <!-- Menu utama -->
+      <div class="dsc">
+        <h1>Welcome</h1>
+        <img src="svg/leaf.svg" alt="dashboard" />
+        <div class="desc">
+          <p class="typeWrite">
+            <span class="typingText"></span>
+          </p>
+          <p>Kunjugi sekarang</p>
+        </div>
+      </div>
+      <!-- ge starte -->
+      <div class="start">
+        <a href="/home"> <p>Lest Go</p> </a>
+      </div>
+      <!-- menu bar di bawah  -->
+      <div class="menubar">
+        <div class="github">
+          <a href="https://github.com/bgdar" target="_blank">
+            <img src="icons/github.png" alt="GitHub" title="github"
+          /></a>
+        </div>
+        <div class="instagram">
+          <a href="">
+            <img src="icons/instagram.png" alt="instagram" title="instagram"
+          /></a>
+        </div>
+        <div class="contact">
+          <a href=""
+            ><img src="icons/contact.png" alt="Contact" title="contact"
+          /></a>
+        </div>
+        <div class="login" id="login">
+          <img src="icons/login.png" alt="icon login" title="login" />
+        </div>
+      </div>
+      <!-- Tampilkan pesan jika error -->
+      <% if (messageError || messageSuccess) { %>
+      <p
+        class="message"
+        pesanError="<%= messageError %>"
+        pesanSuccess="<%= messageSuccess %>"
+      ></p>
+      <% } %>
+    </main>
+    <!--  card untuk login -->
+    <div class="card-blur"></div>
+    <div class="card-login">
+      <div class="row">
+        <form action="/" method="post">
+          <input
+            type="text"
+            name="loginName"
+            id="loginName"
+            placeholder="Masukkan Name"
+          />
+          <input
+            type="password"
+            name="loginPassword"
+            id="loginPassword"
+            placeholder="Masukkan password"
+          />
+          <button type="submit">Submit</button>
+        </form>
+        <p id="btn-singin">Singgin</p>
+      </div>
+    </div>
+
+    <div class="card-singin">
+      <div class="row">
+        <form id="singin" action="/" method="post">
+          <input
+            type="text"
+            name="signupName"
+            id="signupName"
+            placeholder="new name"
+            minlength="3"
+          />
+          <input
+            type="password"
+            name="signupPassword"
+            id="signupPassword"
+            placeholder="new password"
+            minlength="5"
+            pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}"
+            title="Password harus minimal 5 karakter dan mengandung angka serta huruf."
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email baru"
+            min="15"
+            max="100"
+          />
+          <input type="number" name="age" id="age" placeholder="Umur Anda" />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <!--  card Untuk contact start -->
+    <div class="card-contact"></div>
+    <!--  card Untuk contact end -->
+
+    <script src="js/dashboard.js" defer></script>
+  </body>
+</html>
