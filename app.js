@@ -3,7 +3,7 @@ const layouts = require("express-ejs-layouts");
 const multer = require("multer");
 const app = express();
 const path = require("path");
-const port = 3001;
+const port = process.env.PORT || 3000;
 
 // pengelolaan data untuk user
 const {
@@ -273,5 +273,5 @@ app.use("/", (reg, res) => {
   res.status(404).send("<h2 >Halaman tidak di temukan</h2>");
 });
 app.listen(port, () => {
-  console.log("server berjalan di http://127.0.0.1:" + port + "...");
+  console.log("server berjalan di http://127.0.0.1:" + port);
 });
