@@ -1,22 +1,25 @@
 {
   "version": 2,
-  "build": [{ "src": "./app.js", "use": "@vercel/node" }],
+  "build": {
+    "src": "./app.js",
+    "use": "@vercel/node"
+  },
   "routes": [
     {
       "src": "/",
-      "dest": "/"
+      "dest": "./app.js"
     },
     {
       "src": "/home",
-      "dest": "/"
+      "dest": "./app.js"
     },
     {
       "src": "/comentar",
-      "dest": "/"
+      "dest": "./app.js"
     },
     {
       "src": "/input_image",
-      "dest": "/"
+      "dest": "./app.js"
     }
   ]
 }
