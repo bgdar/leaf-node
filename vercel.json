@@ -1,8 +1,8 @@
 {
   "version": 2,
   "functions": {
-    "api/*.js": {
-      "runtime": "nodejs16.x"
+    "app.js": {
+      "runtime": "nodejs20.x"
     }
   },
   "routes": [
