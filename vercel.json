@@ -1,25 +1,14 @@
 {
   "version": 2,
-  "build": {
-    "src": "./app.js",
-    "use": "@vercel/node"
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs16.x"
+    }
   },
   "routes": [
     {
-      "src": "/",
-      "dest": "./app.js"
-    },
-    {
-      "src": "/home",
-      "dest": "./app.js"
-    },
-    {
-      "src": "/comentar",
-      "dest": "./app.js"
-    },
-    {
-      "src": "/input_image",
-      "dest": "./app.js"
+      "src": "/(.*)",
+      "dest": "/app.js"
     }
   ]
 }
