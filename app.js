@@ -4,7 +4,6 @@ const multer = require("multer");
 const app = express();
 const path = require("path");
 
-require("dotenv").config();
 const port = 3000;
 // pengelolaan data untuk user
 const {
