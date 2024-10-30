@@ -1,8 +1,6 @@
 const express = require("express");
 const layouts = require("express-ejs-layouts");
 const multer = require("multer");
-const RedisStore = require("connect-redis")(session);
-const redis = require("redis");
 const path = require("path");
 const app = express();
 
@@ -46,14 +44,12 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // Atur direktori untuk file statis (CSS, JS, gambar, dll.)
-app.use(express.static("public"));
 
-const redisClient = redis.createClient();
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cookieParser());
 app.use(
   session({
-    store: new RedisStore({ client: redisClient }),
     secret: "secret_key",
     resave: false,
     saveUninitialized: true,
