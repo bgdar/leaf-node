@@ -5,8 +5,7 @@ const app = express();
 const path = require("path");
 
 require("dotenv").config();
-const port = process.env.PORT || 3000;
-
+const port = 3000;
 // pengelolaan data untuk user
 const {
   writeData,
@@ -52,7 +51,6 @@ app.use(
   session({
     secret: "secret_key",
     resave: false,
-
     saveUninitialized: true,
     cookie: { secure: false, sameSite: "lax" },
   })
