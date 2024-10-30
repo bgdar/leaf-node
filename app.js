@@ -1,8 +1,10 @@
 const express = require("express");
 const layouts = require("express-ejs-layouts");
 const multer = require("multer");
-const app = express();
+const RedisStore = require("connect-redis")(session);
+const redis = require("redis");
 const path = require("path");
+const app = express();
 
 const port = 3000;
 // pengelolaan data untuk user
@@ -46,9 +48,12 @@ app.set("view engine", "ejs");
 // Atur direktori untuk file statis (CSS, JS, gambar, dll.)
 app.use(express.static("public"));
 
+const redisClient = redis.createClient();
+
 app.use(cookieParser());
 app.use(
   session({
+    store: new RedisStore({ client: redisClient }),
     secret: "secret_key",
     resave: false,
     saveUninitialized: true,
@@ -73,7 +78,7 @@ const isAuthenticated = (req, res, next) => {
 // multer  configurate untuk route input_image
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "public/input_image")); // Use absolute path here
+    cb(null, path.join(__dirname, "public/tmp/input_image")); // Use absolute path here
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname.split(".")[0] + path.extname(file.originalname));
@@ -210,7 +215,6 @@ app.post("/comentar/:date", isAuthenticated, (req, res) => {
 app.get("/input_image", isAuthenticated, (req, res) => {
   const error = req.query.error;
   const success = req.query.success;
-
   Images((err, images) => {
     if (err) {
       throw err;
