@@ -153,7 +153,7 @@ app.post("/", (req, res) => {
 
 app.get("/home", isAuthenticated, (req, res) => {
   const messageSuccess = res.locals.success;
-  res.render("MainPage/home", {
+  res.render("mainpage/home", {
     title: "Halaman Home",
     messageSuccess,
     logo: getDataLogo(),
@@ -170,7 +170,7 @@ app.get("/comentar", isAuthenticated, (req, res) => {
   const data = readDataComent().map((data) => {
     return data;
   });
-  res.render("MainPage/comentar", {
+  res.render("mainpage/comentar", {
     title: "Halaman comentar ",
     data,
     layout: "layouts/main-layout",
@@ -215,7 +215,7 @@ app.get("/input_image", isAuthenticated, (req, res) => {
     if (err) {
       throw err;
     }
-    res.render("MainPage/input_image", {
+    res.render("mainpage/input_image", {
       images,
       title: "Halaman Input File",
       layout: "layouts/main-layout",
