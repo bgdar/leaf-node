@@ -4,6 +4,19 @@ const multer = require("multer");
 const path = require("path");
 const app = express();
 
+//pengaturan
+const helmet = require("helmet");
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"], // Memungkinkan hanya konten dari domain yang sama
+      scriptSrc: ["'self'", "https://vercel.live", "https://cdn.jsdelivr.net"], // Menambahkan CDN SweetAlert2
+      // Tambahkan direktif lain sesuai kebutuhan, seperti 'styleSrc', 'imgSrc', dll.
+    },
+  })
+);
+
 const port = 3000;
 // pengelolaan data untuk user
 const {
