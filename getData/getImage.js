@@ -1,6 +1,10 @@
 const fs = require("fs");
 const path = require("path");
-const dirPath = path.join(__dirname, "../public/input_image");
+
+const dirPath = path.join(__dirname, "../public/tmp/input_image");
+if (!fs.existsSync(dirPath)) {
+  fs.mkdirSync(dirPath, { recursive: true });
+}
 function Images(callback) {
   fs.readdir(dirPath, (err, data) => {
     if (err) {

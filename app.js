@@ -25,7 +25,6 @@ const getDataLogo = require("./getData/getLogo");
 
 const { Images, deleteImage } = require("./getData/getImage");
 
-// Middleware untuk parsing data form
 app.use(layouts);
 
 // sesion
@@ -39,11 +38,8 @@ const bcrypt = require("bcryptjs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// menggunakan template engine EJS
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-
-// Atur direktori untuk file statis (CSS, JS, gambar, dll.)
 
 app.use(express.static(path.join(__dirname, "public")));
 

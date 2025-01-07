@@ -74,7 +74,11 @@
 
 /* content start */
 .content-container {
-  margin: 150px auto;
+  background-image: url("../img/bacground-2.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 150px 0;
   text-align: center;
 }
 .content-container h1 {
