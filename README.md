@@ -22,7 +22,6 @@ Aplikasi web sederhana yang menawarkan fitur **chat** dan **upload image**.
 1. **Clone repositori ini:**
    ```bash
    git clone https://github.com/bgdar/leaf-node.git
-   ``
    ```
 2. **masuk directory proyeck:**
 
@@ -36,7 +35,7 @@ cd leaf-node
 npm run start
 ```
 
-4. **akses di: **
+4. **akses di:**
 
 ```bash
 http://127.0.0.1:3000
