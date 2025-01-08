@@ -4,19 +4,6 @@ const multer = require("multer");
 const path = require("path");
 const app = express();
 
-//pengaturan
-const helmet = require("helmet");
-
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"], // Memungkinkan hanya konten dari domain yang sama
-      scriptSrc: ["'self'", "https://vercel.live", "https://cdn.jsdelivr.net"], // Menambahkan CDN SweetAlert2
-      // Tambahkan direktif lain sesuai kebutuhan, seperti 'styleSrc', 'imgSrc', dll.
-    },
-  })
-);
-
 const port = 3000;
 // pengelolaan data untuk user
 const {
@@ -25,18 +12,18 @@ const {
   readDataSync,
   updateData,
   deleteData,
-} = require("./getData/getUsers");
+} = require("../getData/getUsers");
 //penglolaan data untuk comentar
 const {
   readDataComent,
   addDataComent,
   deleteDataComent,
   editDataComent,
-} = require("./getData/getComentar");
+} = require("../getData/getComentar");
 //pengelolaan data untuk logo
-const getDataLogo = require("./getData/getLogo");
+const getDataLogo = require("../getData/getLogo");
 
-const { Images, deleteImage } = require("./getData/getImage");
+const { Images, deleteImage } = require("../getData/getImage");
 
 app.use(layouts);
 
@@ -51,10 +38,10 @@ const bcrypt = require("bcryptjs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "ejs");
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.use(cookieParser());
 app.use(
@@ -83,7 +70,7 @@ const isAuthenticated = (req, res, next) => {
 // multer  configurate untuk route input_image
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "public/tmp/input_image")); // Use absolute path here
+    cb(null, path.join(__dirname, "../public/tmp/input_image")); // Use absolute path here
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname.split(".")[0] + path.extname(file.originalname));
@@ -163,7 +150,7 @@ app.post("/", (req, res) => {
 app.get("/home", isAuthenticated, (req, res) => {
   const messageSuccess = res.locals.success;
   res.render("mainpage/home", {
-    title: "Halaman Home",
+    title: " Home page",
     messageSuccess,
     logo: getDataLogo(),
     fileCss: "css/home.css",
