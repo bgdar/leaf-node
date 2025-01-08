@@ -3,8 +3,41 @@ const layouts = require("express-ejs-layouts");
 const multer = require("multer");
 const path = require("path");
 const app = express();
-
 const port = 3000;
+
+//pengelolaaan crf =========
+const helmet = require("helmet");
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "https://vercel.live",
+          "https://cdn.jsdelivr.net", // Tambahkan ini untuk SweetAlert
+        ],
+        styleSrc: ["'self'", "'unsafe-inline'"], // Untuk CSS inline
+        imgSrc: ["'self'", "data:"],
+        fontSrc: [
+          "'self'",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+        ],
+      },
+    },
+  })
+);
+//pengelolaaan crf ==========
+
+//penanganan error 500
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
+});
+/// masih perbaikan
+
 // pengelolaan data untuk user
 const {
   writeData,
