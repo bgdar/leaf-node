@@ -20,9 +20,11 @@ Aplikasi web sederhana yang menawarkan fitur **chat** dan **upload image**.
 ### 📖 Cara Menjalankan Secara Manual
 
 1. **Clone repositori ini:**
-   ```bash
-   git clone https://github.com/bgdar/leaf-node.git
-   ```
+
+```bash
+git clone https://github.com/bgdar/leaf-node.git
+```
+
 2. **masuk directory proyeck:**
 
 ```bash
@@ -41,7 +43,7 @@ npm run start
 http://127.0.0.1:3000
 ```
 
-5.login dengan password **dar** dan name **dar**
+5.login dengan password **dar** dan name **dar** _default_
 
 ### 📜 Lisensi
 

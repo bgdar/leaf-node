@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>500 - Terjadi Kesalahan</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #e8f5e9;
+        color: #d32f2f;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 6em;
+        margin: 0;
+        animation: shake 0.5s infinite;
+      }
+
+      p {
+        font-size: 1.5em;
+        margin: 10px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.2em;
+        background-color: #d32f2f;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #b71c1c;
+      }
+
+      .leaves {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .leaf {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: #c62828;
+        border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-10px);
+        }
+        50% {
+          transform: translateX(10px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="leaves"></div>
+    <h1>500</h1>
+    <p>Oops! Terjadi kesalahan pada server. Kami sedang memperbaikinya.</p>
+    <a href="/">Kembali ke Beranda</a>
+
+    <script>
+      const leafContainer = document.querySelector(".leaves");
+      const totalLeaves = 20;
+
+      for (let i = 0; i < totalLeaves; i++) {
+        const leaf = document.createElement("div");
+        leaf.classList.add("leaf");
+        leaf.style.left = `${Math.random() * 100}vw`;
+        leaf.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        leaf.style.animationDelay = `${Math.random() * 5}s`;
+        leafContainer.appendChild(leaf);
+      }
+    </script>
+  </body>
+</html>

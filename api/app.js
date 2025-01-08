@@ -5,39 +5,6 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
-//pengelolaaan crf =========
-const helmet = require("helmet");
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      useDefaults: true,
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: [
-          "'self'",
-          "https://vercel.live",
-          "https://cdn.jsdelivr.net", // Tambahkan ini untuk SweetAlert
-        ],
-        styleSrc: ["'self'", "'unsafe-inline'"], // Untuk CSS inline
-        imgSrc: ["'self'", "data:"],
-        fontSrc: [
-          "'self'",
-          "https://fonts.googleapis.com",
-          "https://fonts.gstatic.com",
-        ],
-      },
-    },
-  })
-);
-//pengelolaaan crf ==========
-
-//penanganan error 500
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
-});
-/// masih perbaikan
-
 // pengelolaan data untuk user
 const {
   writeData,
@@ -182,7 +149,7 @@ app.post("/", (req, res) => {
 
 app.get("/home", isAuthenticated, (req, res) => {
   const messageSuccess = res.locals.success;
-  res.render("mainpage/home", {
+  res.render("Mainpage/home", {
     title: " Home page",
     messageSuccess,
     logo: getDataLogo(),
@@ -199,7 +166,7 @@ app.get("/comentar", isAuthenticated, (req, res) => {
   const data = readDataComent().map((data) => {
     return data;
   });
-  res.render("mainpage/comentar", {
+  res.render("Mainpage/comentar", {
     title: "Halaman comentar ",
     data,
     layout: "layouts/main-layout",
@@ -244,7 +211,7 @@ app.get("/input_image", isAuthenticated, (req, res) => {
     if (err) {
       throw err;
     }
-    res.render("mainpage/input_image", {
+    res.render("Mainpage/input_image", {
       images,
       title: "Halaman Input File",
       layout: "layouts/main-layout",
@@ -298,8 +265,40 @@ app.get("/logout", (req, res) => {
   });
 });
 
-app.use("/", (reg, res) => {
-  res.status(404).send("<h2 >Halaman tidak di temukan</h2>");
+//pengelolaaan crlf hapus jika tidak pelu=========
+const helmet = require("helmet");
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "https://vercel.live",
+          "https://cdn.jsdelivr.net", // Tambahkan ini untuk SweetAlert
+        ],
+        styleSrc: ["'self'", "'unsafe-inline'"], // Untuk CSS inline
+        imgSrc: ["'self'", "data:"],
+        fontSrc: [
+          "'self'",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+        ],
+      },
+    },
+  })
+);
+//pengelolaaan crlf ==========
+
+//jika halaman tidak di temukan
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, "../error/404.html"));
+});
+
+// Middleware Error Handler jika terjadi sesuatu di server
+app.use((err, req, res, next) => {
+  res.status(500).sendFile(path.join(__dirname, "../error/500.html"));
 });
 app.listen(port, () => {
   console.log("server berjalan di http://127.0.0.1:" + port);
